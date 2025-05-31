@@ -5,14 +5,14 @@ import subprocess
 import gzip
 
 def convert_and_compress():
-    input_files = [f for f in os.listdir('.') if f.endswith('.txt') and not f.endswith('_utf-8.txt')]
+    input_files = ['./input_txt/'+f for f in os.listdir('./input_txt/') if f.endswith('.txt') and not f.endswith('_utf-8.txt')]
     combined_filename = 'ru_lang_utf8.txt'
     try:
         # Переводим в формат utf-8 и соединяем файлы в единый
         with open(combined_filename, 'w', encoding='utf-8') as combined_out:
             for filename in input_files:
                 # Наш файл читаем как есть
-                if filename == 'my_word.txt':
+                if filename == './input_txt/my_word.txt':
                     with open(filename, 'r', encoding='utf-8') as f:
                         combined_out.writelines(f)
                 else:
